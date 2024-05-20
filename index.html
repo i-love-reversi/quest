@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>ほのぼのリバーシ</h1>
+<p>オンラインチャレンジで遊ぶにはアプリをインストールしてね</p>
+<div class="store-links">
+    <a href="https://play.google.com/store/apps/details?id=com.otobou.honoreversi&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1" target="_blank">
+        <img src="images/google-play.png" alt="Download on Google Play">
+    </a>
+    <a href="https://apps.apple.com/jp/app/%E3%81%BB%E3%81%AE%E3%81%BC%E3%81%AE%E3%83%AA%E3%83%90%E3%83%BC%E3%82%B7/id6502185427?itsct=apps_box_badge&amp;itscg=30200" target="_blank">
+        <img src="images/app-store.png" alt="Download on the App Store">
+    </a>
+    <div id="link-container"></div>
+
+    <script>
+        function generateCustomLink() {
+            var path = window.location.pathname;
+
+            var questId = path.split('/quest/')[1];
+
+            var customUrl = `honobono-reversi://i-love-reversi.github.io/quest/${questId}`;
+
+            document.getElementById('link-container').innerHTML = `<a href="${customUrl}">${questId}</a>`;
+        }
+
+        // ページが読み込まれたときに関数を実行します。
+        window.onload = generateCustomLink;
+    </script>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
